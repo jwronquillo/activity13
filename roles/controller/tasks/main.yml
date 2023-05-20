@@ -1,0 +1,25 @@
+---
+
+- name: install ntp, msql, message queue, memecached
+  apt:
+    name:
+      - ntp
+      - mysql-server
+    state: latest
+
+- name: install open stack packages
+  command: snap install --edge microstack --classic
+
+- name: install etcd
+  apt:
+    name:
+      - etcd
+    state: latest
+
+- name: install message queue and memcached
+  apt:
+    name:
+      - rabbitmq-server
+      - memcached
+    state: latest
+
